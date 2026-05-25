@@ -20,7 +20,7 @@ public class AgregarRecetaActivity extends AppCompatActivity {
     private Button btnGuardar;
     private String uriImagenSeleccionada = "";
 
-    // Registro del componente para acceder de forma segura a los archivos multimedia
+
     private final ActivityResultLauncher<String> abrirGaleriaLauncher = registerForActivityResult(
             new ActivityResultContracts.GetContent(),
             new ActivityResultCallback<Uri>() {
