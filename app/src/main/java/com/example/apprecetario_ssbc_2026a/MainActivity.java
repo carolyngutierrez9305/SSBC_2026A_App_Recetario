@@ -1,16 +1,13 @@
 package com.example.apprecetario_ssbc_2026a;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        //adapter = new MostrarRecetas(listaDeRecetas, this);
+        adapter = new MostrarRecetas(listaDeRecetas, this);
         recyclerView.setAdapter(adapter);
 
 
@@ -53,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -72,8 +70,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-            //listaDeRecetas.add(new Recetas(nombre, ingredientes, preparacion, rutaImagen));
-
+            listaDeRecetas.add(new Recetas(nombre, ingredientes, preparacion, rutaImagen));
 
             adapter.notifyDataSetChanged();
         }
